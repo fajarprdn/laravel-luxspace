@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\ProductController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
@@ -29,6 +30,6 @@ Route::middleware([
     Route::get('/', [DashboardController::class, 'index'])->name('index');//dashboard.index
 
     Route::middleware(['admin'])->group(function (){
-
+        Route::resource('product', ProductController::class);
     });
 });
